@@ -3,6 +3,7 @@ import Root from "./layout/Root";
 import Home from "./pages/Home/Home";
 import TimeLine from "./pages/Timeline/TimeLine";
 import Stats from "./pages/Stats/Stats";
+import FriendDetails from "./pages/FriendDetails/FriendDetails";
 
 export const router = createBrowserRouter ([
     {
@@ -12,6 +13,10 @@ export const router = createBrowserRouter ([
             {
                 index: true,
                 element: <Home></Home>
+            },
+            {
+                path:"/:id",
+                element: <FriendDetails></FriendDetails>
             },
             {
                 path: "/timeline",
