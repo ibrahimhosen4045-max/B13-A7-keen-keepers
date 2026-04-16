@@ -9,7 +9,7 @@ const Footer = () => {
     <div className='w-full bg-[#244D3F]'>
       <footer className=" w-11/12 container mx-auto  text-white pt-20 pb-7.5">
         <div className='flex flex-col items-center text-center gap-5'>
-            <img src={logo} alt="" />
+            <img className='w-70 lg:w-auto' src={logo} alt="" />
             <h1>Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</h1>
             <h1 className='text-xl'>Social Links</h1>
             <div className='flex gap-3 justify-center'>
@@ -21,7 +21,7 @@ const Footer = () => {
         <div className='py-9'>
             <hr className='text-[#30665480]'/>
         </div>
-        <div className='flex justify-between'>
+        <div className='flex flex-col items-center text-center md:flex-row justify-between'>
             <p className='text-gray-400'>© {new Date().getFullYear()} KeenKeeper. All rigth reserved.</p>
             <div className='flex gap-7 text-gray-400'>
                 <p>Privacy Policy</p>

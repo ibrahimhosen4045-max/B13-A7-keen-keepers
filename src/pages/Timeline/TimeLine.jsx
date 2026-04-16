@@ -18,7 +18,7 @@ const TimeLine = () => {
   })
   
   return (
-    <div className='py-20 w-full h-full bg-[#F8FAFC]'>
+    <div className='py-10 md:py-20 w-full h-full bg-[#F8FAFC]'>
       <div className='container w-11/12 mx-auto space-y-3 py-3'>
         <h1 className='text-5xl font-bold'>Timeline</h1>
         <div>

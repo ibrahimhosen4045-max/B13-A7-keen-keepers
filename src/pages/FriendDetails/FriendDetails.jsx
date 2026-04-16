@@ -8,13 +8,14 @@ import { MdOutlineSms } from 'react-icons/md'
 import { PiVideoCameraBold } from 'react-icons/pi'
 import { MyContext } from '../../Context/ContextData'
 import { toast } from 'react-toastify'
+import { HashLoader } from 'react-spinners'
 
 const FriendDetails = () => {
     const {id} = useParams()
     const {friend, loading} = UseHooks()
     const {meetFriend, setMeetFriend} = useContext(MyContext)
     if(loading){
-        return <p>Loading...</p>
+        return <div className='w-full flex justify-center py-10'><HashLoader color='#244D3F'/></div>
     }
     const expectDetails = friend.find((info) => info.id == id)
 
@@ -34,11 +35,11 @@ const FriendDetails = () => {
         })
 
         setMeetFriend([...meetFriend, {...expectDetails, calltype: call, time: times, date: dates, timestamp: now}])
-        toast.success(`Call with ${expectDetails.name}`)
+        toast.success(`${call === "call" ? "Call" : call === "text" ? "Text" : "Video"} with ${expectDetails.name}`)
     }
   return (
     <div className='w-full h-full bg-[#F9FAFC]'>
-        <div className=' container w-11/12 mx-auto flex gap-6 py-20'>
+        <div className=' container w-11/12 mx-auto flex flex-col lg:flex-row gap-6 py-10 lg:py-20'>
       <div className='flex flex-col gap-6 flex-1'>
         <div className='p-6 flex flex-col items-center gap-3 shadow-md border border-gray-100 rounded-lg text-center bg-white'>
             <img src={expectDetails.picture} alt="" />
@@ -59,7 +60,7 @@ const FriendDetails = () => {
         </div>
       </div>
       <div className='flex flex-col gap-6 flex-2'>
-          <div className='grid grid-cols-3 gap-6 '>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 '>
             <div className='p-8 text-center rounded-lg shadow-md bg-white'>
                 <h1 className='text-3xl font-semibold text-[#244D3F]'>{expectDetails.days_since_contact}</h1>
                 <p className='text-lg text-[#64748B]'>Days Since Contact</p>

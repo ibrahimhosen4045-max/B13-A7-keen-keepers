@@ -10,6 +10,11 @@ import { ToastContainer } from 'react-toastify'
 createRoot(document.getElementById('root')).render(
   <ContextProvider>
     <RouterProvider router={router}/>
-    <ToastContainer />
+    <ToastContainer 
+    position="top-center"
+    autoClose={2000}
+    hideProgressBar={false}
+    
+    />
   </ContextProvider>
 )

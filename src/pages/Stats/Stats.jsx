@@ -17,7 +17,7 @@ const Stats = () => {
 
   return (
     <div className='w-full h-full bg-[#F8FAFC] pb-20'>
-      <div className='container w-11/12 mx-auto pb-5 pt-20'>
+      <div className='container w-11/12 mx-auto pb-5 pt-10 md:pt-20'>
         <h1 className='text-3xl lg:text-5xl font-bold'>Friendship Analytics</h1>
       </div>
       <div className='container w-11/12 mx-auto bg-white rounded-2xl py-10 flex flex-col items-center '>

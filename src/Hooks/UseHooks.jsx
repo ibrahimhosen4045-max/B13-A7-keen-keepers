@@ -8,8 +8,10 @@ const UseHooks = () => {
         const getPromise = async () => {
             const res = await fetch("/friend.json")
             const data = await res.json()
-            setFriend(data)
-            setLoading(false)
+            setTimeout(()=>{
+                setFriend(data)
+                setLoading(false)
+            }, 1000)
         }
         getPromise()
     }, [])

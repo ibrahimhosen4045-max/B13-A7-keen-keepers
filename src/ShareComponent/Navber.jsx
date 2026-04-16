@@ -5,30 +5,52 @@ import { RiHome2Line } from 'react-icons/ri'
 import { NavLink } from 'react-router'
 
 const Navber = () => {
+
+  const links = (
+    <>
+      <li>
+        <NavLink to={'/'} 
+        className={({isActive}) => `text-[16px] btn border-none ${isActive ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}>
+          <RiHome2Line /> Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to={'/timeline'} 
+        className={({isActive}) => `text-[16px] btn border-none  ${isActive ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}>
+          <MdAccessTime /> Timeline
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to={'/stats'} 
+        className={({isActive}) => `text-[16px] btn border-none ${isActive ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}>
+          <ImStatsDots /> Stats
+        </NavLink>
+      </li>
+    </>
+  )
   
   return (
     <div className=' bg-base-100 shadow-sm'>
-      <div className="navbar w-11/12 container mx-auto flex flex-col md:flex-row">
-  <div className="flex-1">
-    <h1 className='text-2xl font-bold'>Keen<span className='font-semibold text-[25px] text-[#244D3F]'>Keeper</span></h1>
-  </div>
-  <div className="flex-none">
-    <ul className="font-semibold text-[#64748B] flex gap-3">
-      <NavLink to={'/'} 
-      className={({isActive}) => `text-[16px] btn border-none ${isActive ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}>
-       <RiHome2Line /> Home
-      </NavLink>
-      <NavLink to={'/timeline'} 
-      className={({isActive}) => `text-[16px] btn border-none  ${isActive ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}>
-      <MdAccessTime /> Timeline
-      </NavLink>
-      <NavLink to={'/stats'} 
-      className={({isActive}) => `text-[16px] btn border-none ${isActive ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}>
-      <ImStatsDots /> Stats
-      </NavLink>
-    </ul>
-  </div>
-</div>
+      <div className="navbar w-11/12 container mx-auto ">
+        <div className="flex-1">
+          <h1 className='text-2xl font-bold'>Keen<span className='font-semibold text-[25px] text-[#244D3F]'>Keeper</span></h1>
+       </div>
+        <div className="flex flex-none">
+          <ul className="font-semibold text-[#64748B] hidden md:flex gap-3 ">
+            {links}
+          </ul>
+          <div className="dropdown -mr-5">
+      <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        tabIndex="-1"
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow right-0">
+        {links}
+      </ul>
+    </div>
+        </div>
+      </div>
     </div>
   )
 }
