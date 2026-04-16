@@ -37,9 +37,10 @@ const FriendDetails = () => {
         toast.success(`Call with ${expectDetails.name}`)
     }
   return (
-    <div className=' container w-11/12 mx-auto flex gap-6 py-20'>
+    <div className='w-full h-full bg-[#F9FAFC]'>
+        <div className=' container w-11/12 mx-auto flex gap-6 py-20'>
       <div className='flex flex-col gap-6 flex-1'>
-        <div className='p-6 flex flex-col items-center gap-3 shadow-md rounded-lg text-center bg-white'>
+        <div className='p-6 flex flex-col items-center gap-3 shadow-md border border-gray-100 rounded-lg text-center bg-white'>
             <img src={expectDetails.picture} alt="" />
             <h1 className='text-xl font-semibold '>{expectDetails.name}</h1>
              <button className={`font-medium text-[14px]  py-1.75 px-3 rounded-full text-white capitalize ${expectDetails.status === "overdue" ? "bg-[#EF4444]" : expectDetails.status === "on-track" ? "bg-[#244D3F]" : "bg-[#EFAD44]"}`}>{expectDetails.status}</button>
@@ -72,7 +73,7 @@ const FriendDetails = () => {
                 <p className='text-lg text-[#64748B]'>Next Due</p>
             </div>
           </div>
-          <div className='p-6 shadow-md rounded-lg'>
+          <div className='p-6 shadow-md rounded-lg bg-white'>
             <div className='flex justify-between'>
                 <p className='text-xl font-medium text-[#244D3F]'>Relationship Goal</p>
                 <button className='btn '>Edit</button>
@@ -89,6 +90,7 @@ const FriendDetails = () => {
             </div>
           </div>
       </div>
+    </div>
     </div>
   )
 }

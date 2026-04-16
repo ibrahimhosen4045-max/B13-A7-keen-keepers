@@ -4,7 +4,7 @@ import { LuAlarmClockCheck } from 'react-icons/lu'
 import call from '../../assets/call.png'
 import text from '../../assets/text.png'
 import video from '../../assets/video.png'
-
+// width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 1 
 const TimeLine = () => {
   const {meetFriend, setMeetFriend} = useContext(MyContext)
   const [filter, setFilter] = useState("all")
@@ -15,18 +15,18 @@ const TimeLine = () => {
     }
     return type.calltype === filter
   })
-  console.log(meetFriend)
+  
   return (
-    <div>
+    <div className='py-20 w-full h-full bg-[#F8FAFC]'>
       <div className='container w-11/12 mx-auto space-y-3'>
         <h1 className='text-5xl font-bold'>Timeline</h1>
         <div>
-          <select defaultValue="Pick a color" className="select border border-gray-300 outel">
-            <option disabled={true}>Filter timeline</option>
-            <option onClick={()=>setFilter("all")}>All</option>
-            <option onClick={()=>setFilter("call")}>Calls</option>
-            <option onClick={()=>setFilter("text")}>Text</option>
-            <option onClick={()=>setFilter("video")}>Video</option>
+          <select  defaultValue="" onChange={(e) => setFilter(e.target.value)} className="select text-gray-500 outline-none">
+            <option value="" disabled className=''>Filter timeline</option>
+            <option value="all" className='text-black'>All</option>
+            <option value="call" className='text-black'>Calls</option>
+            <option value="text" className='text-black'>Text</option>
+            <option value="video" className='text-black'>Video</option>
           </select>
         </div>
       </div>
