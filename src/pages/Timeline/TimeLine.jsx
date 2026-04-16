@@ -4,7 +4,8 @@ import { LuAlarmClockCheck } from 'react-icons/lu'
 import call from '../../assets/call.png'
 import text from '../../assets/text.png'
 import video from '../../assets/video.png'
-// width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 1 
+import image from '../../assets/contact.png'
+ 
 const TimeLine = () => {
   const {meetFriend, setMeetFriend} = useContext(MyContext)
   const [filter, setFilter] = useState("all")
@@ -18,7 +19,7 @@ const TimeLine = () => {
   
   return (
     <div className='py-20 w-full h-full bg-[#F8FAFC]'>
-      <div className='container w-11/12 mx-auto space-y-3'>
+      <div className='container w-11/12 mx-auto space-y-3 py-3'>
         <h1 className='text-5xl font-bold'>Timeline</h1>
         <div>
           <select  defaultValue="" onChange={(e) => setFilter(e.target.value)} className="select text-gray-500 outline-none">
@@ -30,6 +31,7 @@ const TimeLine = () => {
           </select>
         </div>
       </div>
+      {meetFriend.length === 0 ? <div className='font-semibold text-xl container w-11/12 mx-auto bg-white flex flex-col items-center py-10 rounded-2xl shadow'><img className='w-50' src={image} alt="" /> <h1>No Contacts</h1></div> :
       <div className='flex flex-col gap-6 container w-11/12 mx-auto py-6'>
         {filtertype.map((info, index) => <div key={index} className='flex items-center gap-5 p-4 shadow-md border border-gray-100 rounded-lg bg-white'>
           <img src={info.calltype === "text" ? text : info.calltype === "call" ? call : video} alt="" />
@@ -39,6 +41,7 @@ const TimeLine = () => {
           </div>
         </div>)}
       </div>
+      }
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { RiHome2Line } from 'react-icons/ri'
 import { NavLink } from 'react-router'
 
 const Navber = () => {
+  
   return (
     <div className=' bg-base-100 shadow-sm'>
       <div className="navbar w-11/12 container mx-auto flex flex-col md:flex-row">
