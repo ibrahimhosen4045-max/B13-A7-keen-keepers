@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MyContext } from '../../Context/ContextData'
 
 const TimeLine = () => {
+  const {meetFriend, setMeetFriend} = useContext(MyContext)
+  console.log(meetFriend)
   return (
     <div>
-      Timeline page
+      <div>
+        {meetFriend.map((info, index) => <div>
+          <img src={info.picture} alt="" />
+        </div>)}
+      </div>
     </div>
   )
 }

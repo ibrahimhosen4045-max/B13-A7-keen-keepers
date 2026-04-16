@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import UseHooks from '../../Hooks/UseHooks'
 import { useParams } from 'react-router'
 import { HiOutlineBellSnooze } from 'react-icons/hi2'
@@ -7,14 +7,21 @@ import { HiOutlineArchive } from 'react-icons/hi'
 import { TbPhoneCall } from 'react-icons/tb'
 import { MdOutlineSms } from 'react-icons/md'
 import { PiVideoCameraBold } from 'react-icons/pi'
+import { MyContext } from '../../Context/ContextData'
 
 const FriendDetails = () => {
     const {id} = useParams()
     const {friend, loading} = UseHooks()
+    const {meetFriend, setMeetFriend} = useContext(MyContext)
     if(loading){
         return <p>Loading...</p>
     }
     const expectDetails = friend.find((info) => info.id == id)
+
+
+    const handleClick =  () => {
+        setMeetFriend([...meetFriend, expectDetails])
+    }
   return (
     <div className=' container w-11/12 mx-auto flex gap-6 py-20'>
       <div className='flex flex-col gap-6 flex-1'>
@@ -61,7 +68,7 @@ const FriendDetails = () => {
           <div className='p-6 space-y-3 shadow-lg rounded-lg bg-white'>
             <h2 className='text-xl font-medium text-[#244D3F]'>Quick Check-In</h2>
             <div className='grid grid-cols-3 gap-4 '>
-                <div className='btn text-lg font-normal flex-col h-auto py-4'><TbPhoneCall className='text-3xl'/> Call</div>
+                <div onClick={handleClick} className='btn text-lg font-normal flex-col h-auto py-4'><TbPhoneCall className='text-3xl'/> Call</div>
                 <div className='btn text-lg font-normal flex-col h-auto py-4'><MdOutlineSms className='text-3xl'/> Text</div>
                 <div className='btn text-lg font-normal flex-col h-auto py-4'><PiVideoCameraBold className='text-3xl'/> Video</div>
             </div>

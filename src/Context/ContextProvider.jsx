@@ -5,7 +5,9 @@ const ContextProvider = ({children}) => {
     const [meetFriend, setMeetFriend] = useState([])
   return (
     <div>
-      <MyContext.Provider >{children}</MyContext.Provider>
+      <MyContext.Provider value={{meetFriend, setMeetFriend}}>
+        {children}
+      </MyContext.Provider>
     </div>
   )
 }
