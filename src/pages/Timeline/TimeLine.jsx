@@ -33,7 +33,7 @@ const TimeLine = () => {
     <div className='py-10 md:py-20 w-full h-full bg-[#F8FAFC]'>
       <div className='container w-11/12 mx-auto space-y-3 py-3'>
         <h1 className='text-5xl font-bold'>Timeline</h1>
-        <div>
+        <div className='flex justify-between gap-2'>
           <select  defaultValue="" onChange={(e) => setFilter(e.target.value)} className="select text-gray-500 outline-none">
             <option value="" disabled className=''>Filter timeline</option>
             <option value="all" className='text-black'>All</option>
@@ -41,9 +41,10 @@ const TimeLine = () => {
             <option value="text" className='text-black'>Text</option>
             <option value="video" className='text-black'>Video</option>
           </select>
-          <select  defaultValue="" onChange={(e) => setSorted(e.target.value === "new" ? "old" : "new")} className="select text-gray-500 outline-none">
-            <option value="new" >new to old</option>
-            <option value="old" >old to new</option>
+          <select  defaultValue="" onChange={(e) => setSorted(e.target.value === "new" ? "old" : "new")} className="select w-30 outline-none">
+            <option value="old" className='text-black'>New to old</option>
+            <option value="new" className='text-black'>Old to new</option>
+            
           </select>
         </div>
       </div>

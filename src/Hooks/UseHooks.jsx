@@ -11,7 +11,7 @@ const UseHooks = () => {
             setTimeout(()=>{
                 setFriend(data)
                 setLoading(false)
-            }, 1000)
+            }, 800)
         }
         getPromise()
     }, [])
