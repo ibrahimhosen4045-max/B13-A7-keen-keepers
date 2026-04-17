@@ -30,7 +30,7 @@ const Navber = () => {
   )
   
   return (
-    <div className=' bg-base-100 shadow-sm'>
+    <div className=' bg-base-100 shadow-sm sticky top-0 z-50'>
       <div className="navbar w-11/12 container mx-auto ">
         <div className="flex-1">
           <h1 className='text-2xl font-bold'>Keen<span className='font-semibold text-[25px] text-[#244D3F]'>Keeper</span></h1>
